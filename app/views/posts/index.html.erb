@@ -4,6 +4,12 @@
 
 <ul>
   <% @posts.each do |post| %>
-  <li><%= post.title %> / <%= post.text %></li>
+  <li>
+    <%= post.title %> / 
+    <%= post.text %> / 
+    <%= link_to 'show', post_path(post) %> / 
+    <%= link_to 'edit', edit_post_path(post) %> / 
+    <%= link_to 'destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </li>
   <% end %>
 </ul>
